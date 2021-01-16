@@ -1,3 +1,26 @@
 body {
   font-family: sans-serif;
+  background-image: url(./Christmas.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
 }

@@ -4,7 +4,7 @@ const clockContainer = document.querySelector(".js-clock"),
     clockTitle = clockContainer.querySelector("h2");
 
 function getTime() {
-    const xmasDay = new Date("2021-12-24:00:00:00+0900");
+    const xmasDay = new Date("2021-12-25:00:00:00+0900");
     const now = new Date();
 
     const gap = xmasDay - now;
