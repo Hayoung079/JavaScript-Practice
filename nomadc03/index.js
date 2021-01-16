@@ -7,17 +7,23 @@ function getTime() {
     const xmasDay = new Date("2021-12-25:00:00:00+0900");
     const now = new Date();
 
-    const gap = xmasDay - now;
-    // console.log(`${gap}ms`); 
+    const difference = new Date(xmasDay - now);
 
-    // 밀리초를 일/시/분/초로 나누기
-    const day = Math.floor(gap / (1000 * 60 * 60 * 24));
-    const hour = Math.floor((gap % (1000 * 60 *60 * 24)) / (1000 * 60 * 60));
-    const min = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
-    const sec = Math.floor((gap % (1000 * 60)) / 1000);
+    const secondsInMs = Math.floor(difference / 1000);
+    const minutesInMs = Math.floor(secondsInMs / 60);
+    const hoursInMs = Math.floor(minutesInMs / 60);
 
-    // h2안에 00d 00h 00m 00s 형태로 넣기
-    clockTitle.innerText = `${day < 10 ? `0${day}` : day}d ${hour < 10 ? `0${hour}` : hour}h ${min < 10 ? `0${min}` : min}m ${sec < 10 ? `0${sec}` : sec}s`;
+    const days = Math.floor(hoursInMs / 24);
+    const seconds = secondsInMs % 60;
+    const minutes = minutesInMs % 60;
+    const hours = hoursInMs % 24;
+
+    const daysStr = `${days < 10 ? `0${days}` : days}d`;
+    const hoursStr = `${hours < 10 ? `0${hours}` : hours}h`;
+    const minutesStr = `${minutes < 10 ? `0${minutes}` : minutes}m `;
+    const secondsStr = `${seconds < 10 ? `0${seconds}` : seconds}s`;
+    
+    clockTitle.innerHTML = `${daysStr} ${hoursStr} ${minutesStr} ${secondsStr}`;
 }
 
 function init() {
